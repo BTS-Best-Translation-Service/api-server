@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import project.bts.studynote.dto.StudyNoteDto.NoteWithTranslationRequest;
 import project.bts.studynote.dto.StudyNoteDto.TranslateResponse;
+import project.bts.studynote.dto.StudyNoteDto.VideoNoteRequest;
 import project.bts.studynote.dto.StudyNoteDto.WordTranslationResponse;
+import project.bts.studynote.dto.VideoInfoResponse;
 import project.bts.studynote.service.NoteService;
 
 @RestController
@@ -44,17 +46,17 @@ public class NoteController {
     }
 
     @PostMapping("/list-by-video")
-    public ResponseEntity<List<WordTranslationResponse>> getNotesByVideo(@RequestBody Map<String, String> request) {
-        Long userId = Long.parseLong(request.get("userId"));
-        String videoTitle = request.get("videoTitle");
+    public ResponseEntity<List<WordTranslationResponse>> getNotesByVideo(@RequestBody VideoNoteRequest request) {
+        Long userId = request.getUserId();
+        String videoTitle = request.getVideoTitle();
 
         List<WordTranslationResponse> responses = noteService.getNotesByUserAndVideo(userId, videoTitle);
         return ResponseEntity.ok(responses);
     }
 
     @GetMapping("/video-titles")
-    public ResponseEntity<List<String>> getVideoTitles(@RequestParam Long userId) {
-        List<String> titles = noteService.getVideoTitleListByUserId(userId);
+    public ResponseEntity<List<VideoInfoResponse>> getVideoTitles(@RequestParam Long userId) {
+        List<VideoInfoResponse> titles = noteService.getVideoTitleListByUserId(userId);
         return ResponseEntity.ok(titles);
     }
 }

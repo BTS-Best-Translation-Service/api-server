@@ -45,7 +45,7 @@ public class FileController {
 
         // 응답 구성
         Map<String, Object> response = new HashMap<>();
-        response.put("userId", user.getId().toString());
+        response.put("userId", user.getId());
         response.put("srt", srt);
 
         return ResponseEntity.ok(response);

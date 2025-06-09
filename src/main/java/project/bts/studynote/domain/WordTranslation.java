@@ -32,4 +32,5 @@ public class WordTranslation {
     @Column(length = 1000)
     private String translatedSentence;
 
+    private String youtubeUrl;
 }

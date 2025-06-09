@@ -8,6 +8,7 @@ import project.bts.studynote.domain.WordTranslation;
 import project.bts.studynote.dto.StudyNoteDto.NoteWithTranslationRequest;
 import project.bts.studynote.dto.StudyNoteDto.TranslateResponse;
 import project.bts.studynote.dto.StudyNoteDto.WordTranslationResponse;
+import project.bts.studynote.dto.VideoInfoResponse;
 import project.bts.studynote.repository.WordTranslationRepository;
 
 @RequiredArgsConstructor
@@ -52,7 +53,7 @@ public class NoteService {
                 .toList();
     }
 
-    public List<String> getVideoTitleListByUserId(Long userId) {
-        return wordTranslationRepository.findDistinctVideoTitlesByUserId(userId);
+    public List<VideoInfoResponse> getVideoTitleListByUserId(Long userId) {
+        return wordTranslationRepository.findDistinctVideoInfoByUserId(userId);
     }
 }

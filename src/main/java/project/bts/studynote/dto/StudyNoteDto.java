@@ -15,6 +15,7 @@ public class StudyNoteDto {
         private String translated; // 프론트에서 번역된 단어 넣어줌
         private String originalSentence;
         private String translatedSentence;
+        private String youtubeUrl;
     }
 
     @Getter
@@ -31,6 +32,13 @@ public class StudyNoteDto {
         private String translated;
         private String originalSentence;
         private String translatedSentence;
+    }
+
+    @Getter
+    @AllArgsConstructor
+    public static class VideoNoteRequest {
+        private Long userId;
+        private String videoTitle;
     }
 
 }
