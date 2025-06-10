@@ -34,6 +34,7 @@ public class NoteService {
         note.setTranslated(request.getTranslated());
         note.setOriginalSentence(request.getOriginalSentence());
         note.setTranslatedSentence(request.getTranslatedSentence());
+        note.setYoutubeUrl(request.getYoutubeUrl());
 
         wordTranslationRepository.save(note);
 
